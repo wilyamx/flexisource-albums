@@ -29,6 +29,8 @@
 		A258FFE225EE711D00E8B297 /* FLXAlbumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A258FFE025EE711D00E8B297 /* FLXAlbumCollectionViewCell.xib */; };
 		A25B621E25EE74DE00B491C2 /* FLXAlbumsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25B621D25EE74DE00B491C2 /* FLXAlbumsViewModel.swift */; };
 		A25B622325EE80F300B491C2 /* FLXAlbumCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25B622225EE80F300B491C2 /* FLXAlbumCodable.swift */; };
+		A25B622A25EE9D3600B491C2 /* FLXLoadingCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25B622825EE9D3600B491C2 /* FLXLoadingCollectionReusableView.swift */; };
+		A25B622B25EE9D3600B491C2 /* FLXLoadingCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A25B622925EE9D3600B491C2 /* FLXLoadingCollectionReusableView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		A258FFE025EE711D00E8B297 /* FLXAlbumCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FLXAlbumCollectionViewCell.xib; sourceTree = "<group>"; };
 		A25B621D25EE74DE00B491C2 /* FLXAlbumsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXAlbumsViewModel.swift; sourceTree = "<group>"; };
 		A25B622225EE80F300B491C2 /* FLXAlbumCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXAlbumCodable.swift; sourceTree = "<group>"; };
+		A25B622825EE9D3600B491C2 /* FLXLoadingCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXLoadingCollectionReusableView.swift; sourceTree = "<group>"; };
+		A25B622925EE9D3600B491C2 /* FLXLoadingCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FLXLoadingCollectionReusableView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +195,7 @@
 		A243D1C025EDFA0300E55668 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A25B622725EE9CE600B491C2 /* ReusableViews */,
 				A258FFDE25EE70EF00E8B297 /* Cells */,
 				A243D25925EDFF5000E55668 /* DisplayObjects */,
 				A243D1C125EDFA1800E55668 /* FLXViewController.swift */,
@@ -232,6 +237,15 @@
 				A258FFE025EE711D00E8B297 /* FLXAlbumCollectionViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		A25B622725EE9CE600B491C2 /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				A25B622825EE9D3600B491C2 /* FLXLoadingCollectionReusableView.swift */,
+				A25B622925EE9D3600B491C2 /* FLXLoadingCollectionReusableView.xib */,
+			);
+			path = ReusableViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,6 +355,7 @@
 			files = (
 				A243D18425EDE8D700E55668 /* LaunchScreen.storyboard in Resources */,
 				A258FFE225EE711D00E8B297 /* FLXAlbumCollectionViewCell.xib in Resources */,
+				A25B622B25EE9D3600B491C2 /* FLXLoadingCollectionReusableView.xib in Resources */,
 				A243D18125EDE8D700E55668 /* Assets.xcassets in Resources */,
 				A243D17C25EDE8D600E55668 /* Main.storyboard in Resources */,
 			);
@@ -367,6 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A25B622A25EE9D3600B491C2 /* FLXLoadingCollectionReusableView.swift in Sources */,
 				A258FFE125EE711D00E8B297 /* FLXAlbumCollectionViewCell.swift in Sources */,
 				A243D1B125EDF6AD00E55668 /* FLXNetworkManager.swift in Sources */,
 				A25B621E25EE74DE00B491C2 /* FLXAlbumsViewModel.swift in Sources */,

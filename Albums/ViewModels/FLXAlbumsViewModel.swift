@@ -33,6 +33,7 @@ class FLXAlbumsViewModel: FLXViewModel {
                             }
                         }
                         
+                        self.offset += FLXNetworkManager.PAGE_SIZE
                         completion(self.albums)
                     }
                 })
@@ -43,8 +44,30 @@ class FLXAlbumsViewModel: FLXViewModel {
         
     }
     
-    func pullUp() {
-        
+    func pullUp(completion: @escaping ([FLXAlbumDO]) -> ()) {
+        if FLXNetworkManager.shared.isConnectedToNetwork() {
+            
+            FLXNetworkManager.shared.getAlbums(
+                offset: self.offset,
+                completion: { albums in
+                    if let albums = albums {
+                        for album in albums {
+                            if let release = album.primaryRelease {
+                                let displayObject = FLXAlbumDO(id: release.albumId ?? 0,
+                                                               releaseCover: release.image ?? "",
+                                                               releaseLabel: release.name ?? "")
+                                self.albums.append(displayObject)
+                            }
+                        }
+                        
+                        self.offset += FLXNetworkManager.PAGE_SIZE
+                        completion(self.albums)
+                    }
+                })
+        }
+        else {
+            
+        }
     }
     
 }

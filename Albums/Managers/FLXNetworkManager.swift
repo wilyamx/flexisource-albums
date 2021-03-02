@@ -146,7 +146,7 @@ class FLXNetworkManager {
                         do {
                             let jsonDecoder = JSONDecoder()
                             let responseModel = try jsonDecoder.decode(FLXResponseCodable.self, from: data)
-                            DebugInfoKey.api.log(info: "\(responseModel)")
+                            DebugInfoKey.api.log(info: "\(responseModel.results?.count)")
                             completion(responseModel.results)
                         }
                         catch let error {

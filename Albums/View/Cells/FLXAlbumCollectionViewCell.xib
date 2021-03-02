@@ -32,7 +32,7 @@
             <connections>
                 <outlet property="imgvAlbum" destination="0d0-lt-4E6" id="yPr-Nk-2PE"/>
             </connections>
-            <point key="canvasLocation" x="185.50724637681162" y="162.38839285714286"/>
+            <point key="canvasLocation" x="-42" y="158"/>
         </collectionViewCell>
     </objects>
     <resources>
