@@ -9,13 +9,25 @@
 /* Begin PBXBuildFile section */
 		A243D17525EDE8D500E55668 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A243D17425EDE8D500E55668 /* AppDelegate.swift */; };
 		A243D17725EDE8D500E55668 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A243D17625EDE8D500E55668 /* SceneDelegate.swift */; };
-		A243D17925EDE8D600E55668 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A243D17825EDE8D600E55668 /* ViewController.swift */; };
 		A243D17C25EDE8D600E55668 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A243D17A25EDE8D600E55668 /* Main.storyboard */; };
 		A243D17F25EDE8D600E55668 /* Albums.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A243D17D25EDE8D600E55668 /* Albums.xcdatamodeld */; };
 		A243D18125EDE8D700E55668 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A243D18025EDE8D700E55668 /* Assets.xcassets */; };
 		A243D18425EDE8D700E55668 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A243D18225EDE8D700E55668 /* LaunchScreen.storyboard */; };
 		A243D18F25EDE8D700E55668 /* AlbumsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A243D18E25EDE8D700E55668 /* AlbumsTests.swift */; };
 		A243D19A25EDE8D700E55668 /* AlbumsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A243D19925EDE8D700E55668 /* AlbumsUITests.swift */; };
+		A243D1B125EDF6AD00E55668 /* FLXNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A243D1B025EDF6AD00E55668 /* FLXNetworkManager.swift */; };
+		A243D1B925EDF80800E55668 /* FLXViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A243D1B825EDF80800E55668 /* FLXViewModel.swift */; };
+		A243D1C225EDFA1800E55668 /* FLXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A243D1C125EDFA1800E55668 /* FLXViewController.swift */; };
+		A243D1C725EDFA6400E55668 /* FLXAlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A243D1C625EDFA6400E55668 /* FLXAlbumsViewController.swift */; };
+		A243D1CF25EDFAE900E55668 /* FLXCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A243D1CE25EDFAE900E55668 /* FLXCacheManager.swift */; };
+		A243D1D525EDFB2900E55668 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A243D1D425EDFB2900E55668 /* UIImageView+Extension.swift */; };
+		A243D1DB25EDFB6400E55668 /* FLXConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A243D1DA25EDFB6400E55668 /* FLXConstants.swift */; };
+		A243D1E025EDFB9F00E55668 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A243D1DF25EDFB9F00E55668 /* UIFont+Extension.swift */; };
+		A243D25B25EDFF7F00E55668 /* FLXDisplayObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A243D25A25EDFF7F00E55668 /* FLXDisplayObject.swift */; };
+		A243D26025EDFF9B00E55668 /* FLXAlbumDO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A243D25F25EDFF9B00E55668 /* FLXAlbumDO.swift */; };
+		A258FFE125EE711D00E8B297 /* FLXAlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A258FFDF25EE711D00E8B297 /* FLXAlbumCollectionViewCell.swift */; };
+		A258FFE225EE711D00E8B297 /* FLXAlbumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A258FFE025EE711D00E8B297 /* FLXAlbumCollectionViewCell.xib */; };
+		A25B621E25EE74DE00B491C2 /* FLXAlbumsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25B621D25EE74DE00B491C2 /* FLXAlbumsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +51,6 @@
 		A243D17125EDE8D500E55668 /* Albums.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Albums.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A243D17425EDE8D500E55668 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A243D17625EDE8D500E55668 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A243D17825EDE8D600E55668 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A243D17B25EDE8D600E55668 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A243D17E25EDE8D600E55668 /* Albums.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Albums.xcdatamodel; sourceTree = "<group>"; };
 		A243D18025EDE8D700E55668 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +62,19 @@
 		A243D19525EDE8D700E55668 /* AlbumsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlbumsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A243D19925EDE8D700E55668 /* AlbumsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsUITests.swift; sourceTree = "<group>"; };
 		A243D19B25EDE8D700E55668 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A243D1B025EDF6AD00E55668 /* FLXNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXNetworkManager.swift; sourceTree = "<group>"; };
+		A243D1B825EDF80800E55668 /* FLXViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXViewModel.swift; sourceTree = "<group>"; };
+		A243D1C125EDFA1800E55668 /* FLXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXViewController.swift; sourceTree = "<group>"; };
+		A243D1C625EDFA6400E55668 /* FLXAlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXAlbumsViewController.swift; sourceTree = "<group>"; };
+		A243D1CE25EDFAE900E55668 /* FLXCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXCacheManager.swift; sourceTree = "<group>"; };
+		A243D1D425EDFB2900E55668 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		A243D1DA25EDFB6400E55668 /* FLXConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXConstants.swift; sourceTree = "<group>"; };
+		A243D1DF25EDFB9F00E55668 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		A243D25A25EDFF7F00E55668 /* FLXDisplayObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXDisplayObject.swift; sourceTree = "<group>"; };
+		A243D25F25EDFF9B00E55668 /* FLXAlbumDO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXAlbumDO.swift; sourceTree = "<group>"; };
+		A258FFDF25EE711D00E8B297 /* FLXAlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXAlbumCollectionViewCell.swift; sourceTree = "<group>"; };
+		A258FFE025EE711D00E8B297 /* FLXAlbumCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FLXAlbumCollectionViewCell.xib; sourceTree = "<group>"; };
+		A25B621D25EE74DE00B491C2 /* FLXAlbumsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXAlbumsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +125,13 @@
 		A243D17325EDE8D500E55668 /* Albums */ = {
 			isa = PBXGroup;
 			children = (
+				A243D1D925EDFB5000E55668 /* Constants */,
+				A243D1D325EDFB1300E55668 /* Extensions */,
+				A243D1C025EDFA0300E55668 /* View */,
+				A243D1AE25EDEF7E00E55668 /* ViewModels */,
+				A243D1AD25EDEF6B00E55668 /* Managers */,
 				A243D17425EDE8D500E55668 /* AppDelegate.swift */,
 				A243D17625EDE8D500E55668 /* SceneDelegate.swift */,
-				A243D17825EDE8D600E55668 /* ViewController.swift */,
 				A243D17A25EDE8D600E55668 /* Main.storyboard */,
 				A243D18025EDE8D700E55668 /* Assets.xcassets */,
 				A243D18225EDE8D700E55668 /* LaunchScreen.storyboard */,
@@ -129,6 +157,78 @@
 				A243D19B25EDE8D700E55668 /* Info.plist */,
 			);
 			path = AlbumsUITests;
+			sourceTree = "<group>";
+		};
+		A243D1AD25EDEF6B00E55668 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				A243D1B025EDF6AD00E55668 /* FLXNetworkManager.swift */,
+				A243D1CE25EDFAE900E55668 /* FLXCacheManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		A243D1AE25EDEF7E00E55668 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A243D1AF25EDEF8800E55668 /* Codable */,
+				A243D1B825EDF80800E55668 /* FLXViewModel.swift */,
+				A25B621D25EE74DE00B491C2 /* FLXAlbumsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A243D1AF25EDEF8800E55668 /* Codable */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Codable;
+			sourceTree = "<group>";
+		};
+		A243D1C025EDFA0300E55668 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A258FFDE25EE70EF00E8B297 /* Cells */,
+				A243D25925EDFF5000E55668 /* DisplayObjects */,
+				A243D1C125EDFA1800E55668 /* FLXViewController.swift */,
+				A243D1C625EDFA6400E55668 /* FLXAlbumsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A243D1D325EDFB1300E55668 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A243D1D425EDFB2900E55668 /* UIImageView+Extension.swift */,
+				A243D1DF25EDFB9F00E55668 /* UIFont+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A243D1D925EDFB5000E55668 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				A243D1DA25EDFB6400E55668 /* FLXConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		A243D25925EDFF5000E55668 /* DisplayObjects */ = {
+			isa = PBXGroup;
+			children = (
+				A243D25A25EDFF7F00E55668 /* FLXDisplayObject.swift */,
+				A243D25F25EDFF9B00E55668 /* FLXAlbumDO.swift */,
+			);
+			path = DisplayObjects;
+			sourceTree = "<group>";
+		};
+		A258FFDE25EE70EF00E8B297 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A258FFDF25EE711D00E8B297 /* FLXAlbumCollectionViewCell.swift */,
+				A258FFE025EE711D00E8B297 /* FLXAlbumCollectionViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,8 +293,10 @@
 		A243D16925EDE8D500E55668 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = FLX;
 				LastSwiftUpdateCheck = 1230;
 				LastUpgradeCheck = 1230;
+				ORGANIZATIONNAME = "Flexisource IT";
 				TargetAttributes = {
 					A243D17025EDE8D500E55668 = {
 						CreatedOnToolsVersion = 12.3;
@@ -235,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A243D18425EDE8D700E55668 /* LaunchScreen.storyboard in Resources */,
+				A258FFE225EE711D00E8B297 /* FLXAlbumCollectionViewCell.xib in Resources */,
 				A243D18125EDE8D700E55668 /* Assets.xcassets in Resources */,
 				A243D17C25EDE8D600E55668 /* Main.storyboard in Resources */,
 			);
@@ -261,10 +364,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A243D17925EDE8D600E55668 /* ViewController.swift in Sources */,
+				A258FFE125EE711D00E8B297 /* FLXAlbumCollectionViewCell.swift in Sources */,
+				A243D1B125EDF6AD00E55668 /* FLXNetworkManager.swift in Sources */,
+				A25B621E25EE74DE00B491C2 /* FLXAlbumsViewModel.swift in Sources */,
+				A243D1CF25EDFAE900E55668 /* FLXCacheManager.swift in Sources */,
+				A243D1C225EDFA1800E55668 /* FLXViewController.swift in Sources */,
+				A243D1D525EDFB2900E55668 /* UIImageView+Extension.swift in Sources */,
+				A243D1DB25EDFB6400E55668 /* FLXConstants.swift in Sources */,
 				A243D17525EDE8D500E55668 /* AppDelegate.swift in Sources */,
+				A243D26025EDFF9B00E55668 /* FLXAlbumDO.swift in Sources */,
 				A243D17725EDE8D500E55668 /* SceneDelegate.swift in Sources */,
+				A243D1C725EDFA6400E55668 /* FLXAlbumsViewController.swift in Sources */,
+				A243D25B25EDFF7F00E55668 /* FLXDisplayObject.swift in Sources */,
 				A243D17F25EDE8D600E55668 /* Albums.xcdatamodeld in Sources */,
+				A243D1B925EDF80800E55668 /* FLXViewModel.swift in Sources */,
+				A243D1E025EDFB9F00E55668 /* UIFont+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
