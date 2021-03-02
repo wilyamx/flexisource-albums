@@ -10,12 +10,27 @@ import UIKit
 
 class FLXAlbumCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var imgvAlbum: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.imgvAlbum.image = UIImage(named: "film-placeholder")
     }
 
     func configureViewCell(displayObject: FLXAlbumDO) {
-        
+        self.imgvAlbum.image = UIImage(named: "film-placeholder")
+        let imageUrlString = displayObject.releaseCover
+        if imageUrlString.count > 0 {
+            if let url = URL(string: imageUrlString) {
+                self.imgvAlbum.load(
+                    url: url,
+                    completion: { image in
+                        DispatchQueue.main.async {
+                            self.imgvAlbum.image = image
+                        }
+                    })
+            }
+            
+        }
     }
 }

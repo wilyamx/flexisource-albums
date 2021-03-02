@@ -51,7 +51,6 @@ class FLXAlbumsViewController: FLXViewController {
             completion: { albums in
                 DispatchQueue.main.async {
                     self.albums = albums
-                    
                     self.colAlbums.reloadData()
                 }
             })

@@ -21,8 +21,10 @@ enum FLXResponse<T> {
 class FLXNetworkManager {
     static let shared = FLXNetworkManager()
     
-    static let BASE_URL = "https://api.github.com"
-    static let PAGE_SIZE = 5
+    static let BASE_URL = "https://api-metadata-connect.tunedglobal.com/api/v2.1"
+    static let PAGE_SIZE = 10
+    
+    let STORE_ID: String = "luJdnSN3muj1Wf1Q"
     
     // MARK: - Monitoring
     
@@ -57,53 +59,101 @@ class FLXNetworkManager {
     // MARK: - GitHub APIs
     
     /*
-     [
-       {
-         "login": "octocat",
-         "id": 1,
-         "node_id": "MDQ6VXNlcjE=",
-         "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-         "gravatar_id": "",
-         "url": "https://api.github.com/users/octocat",
-         "html_url": "https://github.com/octocat",
-         "followers_url": "https://api.github.com/users/octocat/followers",
-         "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-         "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-         "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-         "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-         "organizations_url": "https://api.github.com/users/octocat/orgs",
-         "repos_url": "https://api.github.com/users/octocat/repos",
-         "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-         "received_events_url": "https://api.github.com/users/octocat/received_events",
-         "type": "User",
-         "site_admin": false
-       }
-     ]
+     {
+         "Offset": 1,
+         "Count": 1,
+         "Total": 50,
+         "Results": [
+             {
+                 "AlbumId": 65287051,
+                 "Name": "Biber/Schmelzer: Trumpet Music",
+                 "Upc": null,
+                 "Artists": [
+                     {
+                         "ArtistId": 157316,
+                         "Name": "Philip Pickett"
+                     }
+                 ],
+                 "AlbumType": "Album",
+                 "PrimaryRelease": {
+                     "ReleaseId": 65287051,
+                     "AlbumId": 65287051,
+                     "Artists": [
+                         {
+                             "ArtistId": 157316,
+                             "Name": "Philip Pickett"
+                         }
+                     ],
+                     "Name": "Biber/Schmelzer: Trumpet Music",
+                     "OriginalCredit": null,
+                     "IsExplicit": false,
+                     "NumberOfVolumes": 1,
+                     "TrackIds": [
+                         65893363
+                     ],
+                     "Duration": 3961,
+                     "Volumes": [
+                         {
+                             "FirstTrackIndex": 0,
+                             "LastTrackIndex": 11
+                         }
+                     ],
+                     "Image": "https://tunedglobal-a.akamaihd.net/images1004/100/4_0/002/894/258/342/9/104_1004_00028942583429_0_20180831_0402.jpg",
+                     "WebPath": null,
+                     "Copyright": null,
+                     "Label": {
+                         "LabelId": "3977",
+                         "Name": "Decca Music Group Ltd."
+                     },
+                     "ReleaseDate": "2008-04-07T00:00:00Z",
+                     "OriginalReleaseDate": "2008-04-07T00:00:00Z",
+                     "PhysicalReleaseDate": null,
+                     "DigitalReleaseDate": null,
+                     "SaleAvailabilityDateTime": "0001-01-01T00:00:00Z",
+                     "StreamAvailabilityDateTime": "0001-01-01T00:00:00Z",
+                     "AllowDownload": true,
+                     "AllowStream": true,
+                     "ContentLanguage": null
+                 },
+                 "PrimaryReleaseId": 65287051,
+                 "ReleaseIds": [
+                     65287051
+                 ]
+             }
+         ]
+     }
      */
-//    public func getUsers(
-//        lastUserId: Int32,
-//        completion: @escaping ([TWKGithubUserCodable]?) -> ()) {
-//
-//        guard let url = URL(string: "\(TWKNetworkManager.BASE_URL)/users?since=\(lastUserId)&per_page=\(TWKNetworkManager.PAGE_SIZE)") else {
-//            return
-//        }
-//
-//        URLSession.shared.dataTask(
-//            with: url,
-//            completionHandler: {
-//                data, response, error -> Void in
-//                    if let data = data {
-//                        do {
-//                            let jsonDecoder = JSONDecoder()
-//                            let responseModel = try jsonDecoder.decode([TWKGithubUserCodable].self, from: data)
-//                            DebugInfoKey.api.log(info: "\(responseModel)")
-//                            completion(responseModel)
-//                        }
-//                        catch let error {
-//                            DebugInfoKey.error.log(info: "JSON Serialization error :: \(error)")
-//                        }
-//                    }
-//            }).resume()
-//
-//    }
+    public func getAlbums(
+        offset: Int,
+        completion: @escaping ([FLXAlbumCodable]?) -> ()) {
+
+        let url2 = URL(string: "\(FLXNetworkManager.BASE_URL)/albums/trending?offset=\(offset)&count=\(FLXNetworkManager.PAGE_SIZE)")
+
+        guard let url = url2  else {
+            return
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField:"Content-Type")
+        request.setValue(STORE_ID, forHTTPHeaderField:"StoreId")
+        
+        URLSession.shared.dataTask(
+            with: request,
+            completionHandler: {
+                data, response, error -> Void in
+                    if let data = data {
+                        do {
+                            let jsonDecoder = JSONDecoder()
+                            let responseModel = try jsonDecoder.decode(FLXResponseCodable.self, from: data)
+                            DebugInfoKey.api.log(info: "\(responseModel)")
+                            completion(responseModel.results)
+                        }
+                        catch let error {
+                            DebugInfoKey.error.log(info: "JSON Serialization error :: \(error)")
+                        }
+                    }
+            }).resume()
+
+    }
 }

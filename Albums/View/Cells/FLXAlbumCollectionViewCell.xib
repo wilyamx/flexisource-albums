@@ -29,6 +29,9 @@
                 <constraint firstAttribute="trailing" secondItem="0d0-lt-4E6" secondAttribute="trailing" id="m5t-Yr-UFV"/>
             </constraints>
             <size key="customSize" width="112" height="103"/>
+            <connections>
+                <outlet property="imgvAlbum" destination="0d0-lt-4E6" id="yPr-Nk-2PE"/>
+            </connections>
             <point key="canvasLocation" x="185.50724637681162" y="162.38839285714286"/>
         </collectionViewCell>
     </objects>

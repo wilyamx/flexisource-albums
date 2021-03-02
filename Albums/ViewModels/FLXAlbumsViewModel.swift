@@ -11,13 +11,36 @@ import UIKit
 class FLXAlbumsViewModel: FLXViewModel {
     private var albums = [FLXAlbumDO]()
     
+    private var offset: Int = 1
+    
     func pullDown(completion: @escaping ([FLXAlbumDO]) -> ()) {
-        self.albums.removeAll()
-        self.albums.append(FLXAlbumDO(id: 1, releaseCover: "cover1.jpg", releaseLabel: "1982"))
-        self.albums.append(FLXAlbumDO(id: 2, releaseCover: "cover1.jpg", releaseLabel: "1983"))
-        self.albums.append(FLXAlbumDO(id: 3, releaseCover: "cover1.jpg", releaseLabel: "1984"))
-        self.albums.append(FLXAlbumDO(id: 4, releaseCover: "cover1.jpg", releaseLabel: "1985"))
-        completion(self.albums)
+        
+        self.offset = 1
+        
+        if FLXNetworkManager.shared.isConnectedToNetwork() {
+            self.albums.removeAll()
+            
+            FLXNetworkManager.shared.getAlbums(
+                offset: self.offset,
+                completion: { albums in
+                    if let albums = albums {
+                        for album in albums {
+                            if let release = album.primaryRelease {
+                                let displayObject = FLXAlbumDO(id: release.albumId ?? 0,
+                                                               releaseCover: release.image ?? "",
+                                                               releaseLabel: release.name ?? "")
+                                self.albums.append(displayObject)
+                            }
+                        }
+                        
+                        completion(self.albums)
+                    }
+                })
+        }
+        else {
+            
+        }
+        
     }
     
     func pullUp() {
