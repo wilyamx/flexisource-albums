@@ -38,7 +38,7 @@ class FLXAlbumsViewController: FLXViewController {
                                                bottom: PADDING,
                                                right: PADDING)
         
-        let width: CGFloat = (self.colAlbums.frame.width + (PADDING * (COLUMNS - 1))) / COLUMNS - (PADDING * COLUMNS)
+        let width: CGFloat = ceil((self.colAlbums.frame.width + (PADDING * (COLUMNS - 1.0))) / COLUMNS - (PADDING * COLUMNS))
         flowLayout.itemSize = CGSize(width: width, height: width)
         
         self.colAlbums.collectionViewLayout = flowLayout
