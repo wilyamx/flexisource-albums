@@ -24,5 +24,7 @@ class FLXCacheManager {
             diskPath: nil)
         URLCache.shared = urlCache
     }
+    
 }
+
 

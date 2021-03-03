@@ -41,13 +41,27 @@ class FLXAlbumsViewController: FLXViewController {
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
                                 withReuseIdentifier: "FLXLoadingCollectionReusableView")
        
-        self.colAlbums.backgroundColor = .black
+        self.colAlbums.backgroundColor = .white
         self.colAlbums.collectionViewLayout = UICollectionViewFlowLayout()
         self.colAlbums.dataSource = self
         self.colAlbums.delegate = self
     }
     
+    private func alertForNoConnection() {
+        FLXPopupManager.shared.popUpErrorDetails(
+            presenter: self,
+            title: "Alert",
+            message: "No connection!")
+    }
+    
     private func getAlbums() {
+        guard FLXNetworkManager.shared.isConnectedToNetwork() else {
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+                //self.alertForNoConnection()
+            }
+            return
+        }
         guard !self.isLoading else { return }
         
         self.isLoading = true
@@ -64,6 +78,13 @@ class FLXAlbumsViewController: FLXViewController {
     }
     
     private func getNextAlbums() {
+        guard FLXNetworkManager.shared.isConnectedToNetwork() else {
+            DispatchQueue.main.async {
+                self.isLoading = false
+                self.colAlbums.reloadData()
+            }
+            return
+        }
         guard !self.isLoading else { return }
         
         self.isLoading = true
@@ -121,6 +142,7 @@ extension FLXAlbumsViewController: UICollectionViewDataSource {
             withReuseIdentifier: "FLXAlbumCollectionViewCell",
             for: indexPath) as! FLXAlbumCollectionViewCell
         
+        print("]>> cell-row: \(indexPath.row)")
         cell.configureViewCell(displayObject: data)
         
         return cell
@@ -142,7 +164,7 @@ extension FLXAlbumsViewController: UICollectionViewDataSource {
 
 extension FLXAlbumsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView,
-                                 didSelectItemAt indexPath: IndexPath) {
+                        didSelectItemAt indexPath: IndexPath) {
         let data = self.albums[indexPath.row]
         DebugInfoKey.api.log(info: "selected an album \(data.id) at index \(indexPath.row) :: \(data.releaseCover)")
     }
@@ -170,6 +192,7 @@ extension FLXAlbumsViewController: UICollectionViewDelegateFlowLayout {
                             bottom: PADDING,
                             right: PADDING)
     }
+    
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
@@ -224,7 +247,9 @@ extension FLXAlbumsViewController: UICollectionViewDelegateFlowLayout {
         willDisplay cell: UICollectionViewCell,
         forItemAt indexPath: IndexPath) {
         
-        if indexPath.row == self.albums.count - FLXNetworkManager.PAGE_SIZE && !self.isLoading {
+        print("]>> will-display-row \(indexPath.row) / \(self.albums.count)")
+        
+        if indexPath.row == self.albums.count - 1 && !self.isLoading {
             self.getNextAlbums()
         }
     }

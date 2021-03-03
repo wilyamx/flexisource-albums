@@ -22,7 +22,7 @@ class FLXNetworkManager {
     static let shared = FLXNetworkManager()
     
     static let BASE_URL = "https://api-metadata-connect.tunedglobal.com/api/v2.1"
-    static let PAGE_SIZE = 20
+    static let PAGE_SIZE = 5
     
     let STORE_ID: String = "luJdnSN3muj1Wf1Q"
     
@@ -125,9 +125,10 @@ class FLXNetworkManager {
      */
     public func getAlbums(
         offset: Int,
+        pageSize: Int,
         completion: @escaping ([FLXAlbumCodable]?) -> ()) {
 
-        let url2 = URL(string: "\(FLXNetworkManager.BASE_URL)/albums/trending?offset=\(offset)&count=\(FLXNetworkManager.PAGE_SIZE)")
+        let url2 = URL(string: "\(FLXNetworkManager.BASE_URL)/albums/trending?offset=\(offset)&count=\(pageSize)")
 
         guard let url = url2  else {
             return
@@ -146,7 +147,9 @@ class FLXNetworkManager {
                         do {
                             let jsonDecoder = JSONDecoder()
                             let responseModel = try jsonDecoder.decode(FLXResponseCodable.self, from: data)
-                            DebugInfoKey.api.log(info: "\(responseModel.results?.count)")
+                            if let results = responseModel.results {
+                                DebugInfoKey.api.log(info: "new \(results.count) albums")
+                            }
                             completion(responseModel.results)
                         }
                         catch let error {

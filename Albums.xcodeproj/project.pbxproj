@@ -25,6 +25,7 @@
 		A243D1E025EDFB9F00E55668 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A243D1DF25EDFB9F00E55668 /* UIFont+Extension.swift */; };
 		A243D25B25EDFF7F00E55668 /* FLXDisplayObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A243D25A25EDFF7F00E55668 /* FLXDisplayObject.swift */; };
 		A243D26025EDFF9B00E55668 /* FLXAlbumDO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A243D25F25EDFF9B00E55668 /* FLXAlbumDO.swift */; };
+		A250CD4B25EF1B7E00B13888 /* FLXPopupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A250CD4A25EF1B7E00B13888 /* FLXPopupManager.swift */; };
 		A258FFE125EE711D00E8B297 /* FLXAlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A258FFDF25EE711D00E8B297 /* FLXAlbumCollectionViewCell.swift */; };
 		A258FFE225EE711D00E8B297 /* FLXAlbumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A258FFE025EE711D00E8B297 /* FLXAlbumCollectionViewCell.xib */; };
 		A25B621E25EE74DE00B491C2 /* FLXAlbumsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25B621D25EE74DE00B491C2 /* FLXAlbumsViewModel.swift */; };
@@ -75,6 +76,7 @@
 		A243D1DF25EDFB9F00E55668 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		A243D25A25EDFF7F00E55668 /* FLXDisplayObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXDisplayObject.swift; sourceTree = "<group>"; };
 		A243D25F25EDFF9B00E55668 /* FLXAlbumDO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXAlbumDO.swift; sourceTree = "<group>"; };
+		A250CD4A25EF1B7E00B13888 /* FLXPopupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXPopupManager.swift; sourceTree = "<group>"; };
 		A258FFDF25EE711D00E8B297 /* FLXAlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXAlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		A258FFE025EE711D00E8B297 /* FLXAlbumCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FLXAlbumCollectionViewCell.xib; sourceTree = "<group>"; };
 		A25B621D25EE74DE00B491C2 /* FLXAlbumsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXAlbumsViewModel.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			children = (
 				A243D1B025EDF6AD00E55668 /* FLXNetworkManager.swift */,
 				A243D1CE25EDFAE900E55668 /* FLXCacheManager.swift */,
+				A250CD4A25EF1B7E00B13888 /* FLXPopupManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				A243D1CF25EDFAE900E55668 /* FLXCacheManager.swift in Sources */,
 				A243D1C225EDFA1800E55668 /* FLXViewController.swift in Sources */,
 				A25B622325EE80F300B491C2 /* FLXAlbumCodable.swift in Sources */,
+				A250CD4B25EF1B7E00B13888 /* FLXPopupManager.swift in Sources */,
 				A243D1D525EDFB2900E55668 /* UIImageView+Extension.swift in Sources */,
 				A243D1DB25EDFB6400E55668 /* FLXConstants.swift in Sources */,
 				A243D17525EDE8D500E55668 /* AppDelegate.swift in Sources */,

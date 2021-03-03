@@ -13,6 +13,9 @@ class FLXAlbumsViewModel: FLXViewModel {
     
     private var offset: Int = 1
     
+    let INITIAL_PAGE_SIZE: Int = 20
+    let PAGE_SIZE: Int = 5
+    
     func pullDown(completion: @escaping ([FLXAlbumDO]) -> ()) {
         
         self.offset = 1
@@ -20,8 +23,10 @@ class FLXAlbumsViewModel: FLXViewModel {
         if FLXNetworkManager.shared.isConnectedToNetwork() {
             self.albums.removeAll()
             
+            DebugInfoKey.api.log(info: "albums pull-down")
             FLXNetworkManager.shared.getAlbums(
                 offset: self.offset,
+                pageSize: self.INITIAL_PAGE_SIZE,
                 completion: { albums in
                     if let albums = albums {
                         for album in albums {
@@ -33,7 +38,7 @@ class FLXAlbumsViewModel: FLXViewModel {
                             }
                         }
                         
-                        self.offset += FLXNetworkManager.PAGE_SIZE
+                        self.offset += self.INITIAL_PAGE_SIZE
                         completion(self.albums)
                     }
                 })
@@ -47,8 +52,10 @@ class FLXAlbumsViewModel: FLXViewModel {
     func pullUp(completion: @escaping ([FLXAlbumDO]) -> ()) {
         if FLXNetworkManager.shared.isConnectedToNetwork() {
             
+            DebugInfoKey.api.log(info: "albums pull-up ^^^")
             FLXNetworkManager.shared.getAlbums(
                 offset: self.offset,
+                pageSize: self.PAGE_SIZE,
                 completion: { albums in
                     if let albums = albums {
                         for album in albums {
@@ -60,7 +67,7 @@ class FLXAlbumsViewModel: FLXViewModel {
                             }
                         }
                         
-                        self.offset += FLXNetworkManager.PAGE_SIZE
+                        self.offset += self.PAGE_SIZE
                         completion(self.albums)
                     }
                 })

@@ -15,10 +15,11 @@ extension UIImageView {
               completion: @escaping (UIImage) -> Void) {
         
         let cache = FLXCacheManager.shared.imageCache
-        let key = url.absoluteString as NSString
+        let key = url.lastPathComponent as NSString
         if let image = cache.object(forKey: key) {
-            self.image = image
-            completion(image)
+            DispatchQueue.main.async {
+                self.image = image
+            }
             return
         }
         
@@ -35,9 +36,19 @@ extension UIImageView {
             guard let data = data else { return }
 
             if let image = UIImage(data: data) {
-                cache.setObject(image, forKey: key)
-                DebugInfoKey.cache.log(info: "Image cached from \(key)")
-                completion(image)
+                DispatchQueue.main.async {
+                    let imageSize = self.frame.size
+                    let renderer = UIGraphicsImageRenderer(size: imageSize)
+                    let thumbnailImage = renderer.image {
+                        (context) in
+                        image.draw(in: CGRect(origin: .zero, size: imageSize))
+                    }
+                    
+                    cache.setObject(thumbnailImage, forKey: key)
+                    DebugInfoKey.cache.log(info: "Image cached from \(key)")
+                    
+                    self.image = thumbnailImage
+                }
             }
 
         }.resume()
