@@ -36,7 +36,7 @@ class FLXAlbumsViewModel: FLXViewModel {
                                 self.albums.append(displayObject)
                             }
                         }
-                        
+
                         self.offset += self.INITIAL_PAGE_SIZE
                         completion(self.albums)
                     }

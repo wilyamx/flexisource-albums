@@ -125,10 +125,10 @@ extension FLXAlbumsViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if self.albums.count == 0 {
-            //collectionView.setEmptyMessage(message: "no_results_available".localized())
+            self.colAlbums.setEmptyMessage("No results available")
         }
         else {
-            //collectionView.restoreFromEmptyMessage()
+            self.colAlbums.restoreFromEmptyMessage()
         }
         return self.albums.count
     }
@@ -211,7 +211,7 @@ extension FLXAlbumsViewController: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         referenceSizeForFooterInSection section: Int) -> CGSize {
         
-        if self.isLoading {
+        if self.albums.count == 0 || self.isLoading {
             return .zero
         }
         else {
