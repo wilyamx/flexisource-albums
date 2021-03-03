@@ -8,7 +8,7 @@
 - ~~The grid should be implemented with a UI Collection View~~
 - ~~Each image should be the same size.~~
 - Images should load asynchronously.
-- There should be 8 points worth of padding between the images on all sides.
+- ~~There should be 8 points worth of padding between the images on all sides.~~
 - ~~The grid should adapt to any iOS Phone device size.~~
 
 ## Resources

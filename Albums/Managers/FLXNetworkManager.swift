@@ -22,7 +22,7 @@ class FLXNetworkManager {
     static let shared = FLXNetworkManager()
     
     static let BASE_URL = "https://api-metadata-connect.tunedglobal.com/api/v2.1"
-    static let PAGE_SIZE = 10
+    static let PAGE_SIZE = 20
     
     let STORE_ID: String = "luJdnSN3muj1Wf1Q"
     

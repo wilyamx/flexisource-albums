@@ -25,6 +25,8 @@ class FLXAlbumsViewController: FLXViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Albums"
+        
         self.initializeUI()
         self.enableRefreshControl(scrollView: self.colAlbums)
         self.getAlbums()
@@ -39,16 +41,8 @@ class FLXAlbumsViewController: FLXViewController {
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
                                 withReuseIdentifier: "FLXLoadingCollectionReusableView")
        
-        
-        let flowLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        flowLayout.sectionInset = UIEdgeInsets(top: PADDING,
-                                               left: PADDING,
-                                               bottom: PADDING,
-                                               right: PADDING)
-        flowLayout.minimumInteritemSpacing = PADDING
-        
         self.colAlbums.backgroundColor = .black
-        self.colAlbums.collectionViewLayout = flowLayout
+        self.colAlbums.collectionViewLayout = UICollectionViewFlowLayout()
         self.colAlbums.dataSource = self
         self.colAlbums.delegate = self
     }
@@ -149,7 +143,8 @@ extension FLXAlbumsViewController: UICollectionViewDataSource {
 extension FLXAlbumsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView,
                                  didSelectItemAt indexPath: IndexPath) {
-        
+        let data = self.albums[indexPath.row]
+        DebugInfoKey.api.log(info: "selected an album \(data.id) at index \(indexPath.row) :: \(data.releaseCover)")
     }
 }
 
@@ -166,6 +161,29 @@ extension FLXAlbumsViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: widthPerItem, height: widthPerItem)
     }
 
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: PADDING,
+                            left: PADDING,
+                            bottom: PADDING,
+                            right: PADDING)
+    }
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return PADDING
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return PADDING
+    }
+    
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
