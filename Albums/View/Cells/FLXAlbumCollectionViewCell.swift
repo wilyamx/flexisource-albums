@@ -19,32 +19,18 @@ class FLXAlbumCollectionViewCell: UICollectionViewCell {
 
     func configureViewCell(displayObject: FLXAlbumDO) {
         self.imgvAlbum.image = UIImage(named: "film-placeholder")
-
+        
         let imageUrlString = displayObject.releaseCover
         if imageUrlString.count > 0 {
             if let url = URL(string: imageUrlString) {
                 self.imgvAlbum.load(
                     url: url,
                     completion: { image in
-                      
+
                     })
             }
-            
+
         }
-        
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-//            let imageUrlString = displayObject.releaseCover
-//            if imageUrlString.count > 0 {
-//                if let url = URL(string: imageUrlString) {
-//                    self.imgvAlbum.load(
-//                        url: url,
-//                        completion: { image in
-//
-//                        })
-//                }
-//
-//            }
-//        })
         
     }
 }
