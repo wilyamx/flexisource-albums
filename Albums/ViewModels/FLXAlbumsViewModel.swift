@@ -23,7 +23,6 @@ class FLXAlbumsViewModel: FLXViewModel {
         if FLXNetworkManager.shared.isConnectedToNetwork() {
             self.albums.removeAll()
             
-            DebugInfoKey.api.log(info: "albums pull-down")
             FLXNetworkManager.shared.getAlbums(
                 offset: self.offset,
                 pageSize: self.INITIAL_PAGE_SIZE,
@@ -52,7 +51,6 @@ class FLXAlbumsViewModel: FLXViewModel {
     func pullUp(completion: @escaping ([FLXAlbumDO]) -> ()) {
         if FLXNetworkManager.shared.isConnectedToNetwork() {
             
-            DebugInfoKey.api.log(info: "albums pull-up ^^^")
             FLXNetworkManager.shared.getAlbums(
                 offset: self.offset,
                 pageSize: self.PAGE_SIZE,

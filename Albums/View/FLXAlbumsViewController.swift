@@ -142,7 +142,6 @@ extension FLXAlbumsViewController: UICollectionViewDataSource {
             withReuseIdentifier: "FLXAlbumCollectionViewCell",
             for: indexPath) as! FLXAlbumCollectionViewCell
         
-        print("]>> cell-row: \(indexPath.row)")
         cell.configureViewCell(displayObject: data)
         
         return cell
@@ -246,8 +245,6 @@ extension FLXAlbumsViewController: UICollectionViewDelegateFlowLayout {
         _ collectionView: UICollectionView,
         willDisplay cell: UICollectionViewCell,
         forItemAt indexPath: IndexPath) {
-        
-        print("]>> will-display-row \(indexPath.row) / \(self.albums.count)")
         
         if indexPath.row == self.albums.count - 1 && !self.isLoading {
             self.getNextAlbums()

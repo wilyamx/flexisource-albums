@@ -24,4 +24,5 @@
 ## Screenshots
 
 ![FirstLoad](images/album-1.png)
-![Pagination](images/album-2.png)
+![PullDowwn](images/album-3.png)
+![PullUp](images/album-2.png)
